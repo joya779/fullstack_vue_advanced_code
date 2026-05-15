@@ -6,15 +6,15 @@
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run serve\"",
     "server": "node server",
-    "serve": "set NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
-    "vue": "^3.5.34",
-    "vuex": "^4.1.0"
+    "vue": "^3.0.0",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
