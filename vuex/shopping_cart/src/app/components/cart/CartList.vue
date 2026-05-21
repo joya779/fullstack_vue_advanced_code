@@ -3,6 +3,7 @@
     <div class="cart--header has-text-centered">
       <i class="fa fa-2x fa-shopping-cart"></i>
     </div>
+
     <ul>
       <li class="cart-item">
         <div>
@@ -25,6 +26,7 @@
           </div>
         </div>
       </li>
+      
       <div class="cart-details">
         <p>Total Quantity: <span class="has-text-weight-bold">2</span></p>
         <p class="cart-remove-all--text">
@@ -32,6 +34,7 @@
         </p>
       </div>
     </ul>
+    
     <button class="button is-primary">
       Checkout (<span class="has-text-weight-bold">$</span>)
     </button>

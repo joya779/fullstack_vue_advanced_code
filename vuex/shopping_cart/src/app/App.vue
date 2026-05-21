@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <div class="columns">
+  <div id="app" style="background-color:green">
+    <div class="container" style="background-color:red">
+      <div class="columns" style="background-color:yellow">
         <div class="column is-3">
           <CartList />
         </div>
