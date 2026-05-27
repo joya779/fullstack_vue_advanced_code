@@ -5,9 +5,13 @@
     </div>
 
     <div class="product-list">
-      <div class="product-list--item">
+      <div
+        class="product-list--item"
+        v-for="item in productItems"
+        :key="item.id"
+      >
         <!-- product list item -->
-        <ProductListItem />
+        <ProductListItem :productItem="item" />
       </div>
     </div>
 
@@ -18,11 +22,23 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import ProductListItem from "./ProductListItem.vue";
 export default {
   name: "ProductList",
   components: {
     ProductListItem,
+  },
+  computed: {
+    ...mapGetters(["productItems"]),
+
+    // productItems() {
+    //   return this.$store.getters.productItems;
+    // },
+  },
+
+  created() {
+    this.$store.dispatch("getProductItems");
   },
 };
 </script>

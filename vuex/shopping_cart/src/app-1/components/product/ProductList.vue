@@ -3,26 +3,18 @@
     <div class="products--header has-text-centered">
       <i class="fa fa-2x fa-user-circle"></i>
     </div>
+
     <div class="product-list">
-      <!-- show product item details -->
-      <div class="product-list--item">
-        <div>
-          <h2 class="has-text-weight-bold">
-            The Fullstack Hoodie
-            <span class="tag is-primary is-pulled-right has-text-white">
-              Add to Cart
-            </span>
-          </h2>
-          <p>
-            Lightweight, breathable hoodie with the Fullstack Crest. Guaranteed
-            to keep you looking fresh while warm.
-          </p>
-          <span class="has-text-primary has-text-weight-bold">
-            <i class="fa fa-usd"></i> 19.99
-          </span>
-        </div>
+      <div
+        class="product-list--item"
+        v-for="productItem in productItems"
+        :key="productItem.id"
+      >
+        <!-- product list item -->
+        <ProductListItem :productItem="productItem" />
       </div>
     </div>
+
     <div class="product-count has-text-right">
       <span class="has-text-weight-bold"># of products: 4</span>
     </div>
@@ -30,8 +22,27 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import ProductListItem from "./ProductListItem.vue";
+
 export default {
   name: "ProductList",
+  components: {
+    ProductListItem,
+  },
+  computed: {
+    // productItems() {
+    //   return this.$store.getters.productItems;
+    // },
+    // object spreat operator
+    ...mapGetters([
+      // map this.productItems to this.$store.getters.productItems
+      "productItems",
+    ]),
+  },
+  created() {
+    this.$store.dispatch("getProductItems");
+  },
 };
 </script>
 
