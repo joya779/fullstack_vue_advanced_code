@@ -3,11 +3,14 @@
     <div class="cart--header has-text-centered">
       <i class="fa fa-2x fa-shopping-cart"></i>
     </div>
+    <p v-if="!cartItems.length" class="cart-empty-text has-text-centered">
+      Add some items to the cart!
+    </p>
 
-    <ul>
-      <li class="cart-item">
+    <ul v-if="cartItems.length > 0">
+      <li class="cart-item" v-for="item in cartItems" :key="item.id">
         <!-- cart list item component -->
-        <CartListItem />
+        <CartListItem :cartItem="item" />
       </li>
 
       <div class="cart-details">
@@ -25,11 +28,19 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
 import CartListItem from "./CartListItem.vue";
 export default {
   name: "CartList",
   components: {
     CartListItem,
+  },
+  computed: {
+    ...mapGetters(["cartItems"]),
+  },
+  created() {
+    this.$store.dispatch("getCartItems");
   },
 };
 </script>
