@@ -1,4 +1,5 @@
 module.exports = {
+  transpileDependencies: ['vue-router'],
   devServer: {
     proxy: {
       '/api': {
